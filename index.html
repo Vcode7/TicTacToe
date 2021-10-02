@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://96be-2409-4071-4e19-b69d-00-3c8a-9a03.ngrok.io/socket.io/socket.io.js"></script>
+    <!-- 
+        <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+   --> 
+   <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>TIC TAC TOE</title>
+</head>
+
+<body style="overflow: hidden;">
+    <!--*****"main Screen"******-->
+    
+    <div class="main-heading">TIC TAC TOE</div>
+    <div class="main">
+
+        <button class="btn newbtn" onclick="createnewroom()" id="newbtn">NEW GAME</button>
+        <h1>or</h1>
+        <button class="btn joinbtn" id="">JOIN GAME</button>
+    </div>
+    <!--*****"create Screen"******-->
+    <div class="create">
+        <div class="player1 player"></div>
+        <h1 class="vs">VS
+        </h1>
+        <div class="player2 player"></div>
+        <div class="gcd"></div>
+        <div class="ntg" style="color :white">Waiting for player to join</div>
+        <button class="startbtn" onclick="gamestart()">Start Game</button>
+        <div class="waitingtext">Only the create of room can start, Waiting for player to start the game</div>
+    </div>
+
+    <!--*****"join Screen"******-->
+    <div class="join">
+        <input type="text" class="joincode" placeholder="Enter code here to join">
+        <button class="joinroombtn" onclick="joinroom()">JOIN ROOM</button>
+    </div>
+    
+    <!--*****"game Screen"******-->
+    
+    <div class="game">
+        <div class="numstart">1</div>
+        <div class="opp ply">
+                <div class="player1img imggame"></div>
+                
+                <div class="name oppname">hhg</div>
+            </div>
+            <div class="block"></div>
+            <div class="gamemain">
+                <span class="cell" id="1" d-cell></span>
+                <span class="cell" id="2" d-cell></span>
+                <span class="cell" id="3" d-cell></span>
+                <span class="cell" id="4" d-cell></span>
+                <span class="cell" id="5" d-cell></span>
+                <span class="cell" id="6" d-cell></span>
+                <span class="cell" id="7" d-cell></span>
+                <span class="cell" id="8" d-cell></span>
+                <span class="cell" id="9" d-cell></span>
+            </div>
+            <div class="you ply">
+                <div class="player2img imggame" ></div>
+                <div class="name yourname"></div>
+            </div>
+        </div>
+        <!--***********RESULTS*********-->
+        <div class="resultscreen">
+            <div class="cancle" onclick="gameover()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                    <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                  </svg>
+            </div>
+            <div class="result"></div>
+            <div class="playagain">
+                Requesting the player to play again
+                </div>
+            <div class="requesttoplay">
+                The player wants to play again<br>
+                Do You Want to play
+                <button onclick="gamestart()" class="yes playbtn">Yes</button>
+                <button class="no playbtn" onclick="gameover(); requestrejected()">No</button>            
+            </div>
+        </div>
+    </body>
+
+</html>
