@@ -1,7 +1,5 @@
- const socket = io('https://96be-2409-4071-4e19-b69d-00-3c8a-9a03.ngrok.io');
+ const socket = io('https://tttgameserver.herokuapp.com');
   
-// const socket = io('http://localhost:8000');
-
 const MAIN = document.querySelector('.main')
 const JOIN = document.querySelector('.join')
 const GAME = document.querySelector('.game')
